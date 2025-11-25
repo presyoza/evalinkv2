@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #003366; /* Dark Blue */
+  --accent-color: #d4af37; /* Gold */
+  --secondary-color: #f3f4f6; /* Light gray background */
+  --text-color: #1f2937; /* Dark gray for text */
+  --text-light: #6b7280;
+  --white-color: #ffffff;
+  --border-color: #e5e7eb;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background-color: var(--secondary-color);
+}
+
+.ustp-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  /* Restore background image with a dark overlay for readability */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/evalink.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.ustp-login-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Change container to have a white background */
+  background-color: var(--white-color);
+  padding: 60px; /* Increase padding to make it feel bigger */
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 480px; /* Make the container wider */
+  box-sizing: border-box;
+}
+
+.ustp-logo {
+  margin-bottom: 40px;
+}
+
+.ustp-logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+.role-select-container,
+.ustp-form {
+  width: 100%;
+  max-width: 380px; /* Constrain the width of form elements */
+  text-align: center;
+}
+
+h4 {
+  color: var(
+    --text-color
+  ); /* Change text to dark for readability on white bg */
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.selected-role span {
+  color: var(--accent-color);
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.login-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-options button {
+  font-family: "Inter", sans-serif;
+  padding: 14px;
+  border: none; /* Remove border for solid button style */
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color); /* Change to dark blue */
+  color: var(--white-color); /* Change text to white */
+  font-size: 1rem;
+  font-weight: 600; /* Increase font weight */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-options button:hover {
+  background-color: #002244; /* Even darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+}
+
+.input-group {
+  margin-bottom: 1.25rem;
+  position: relative; /* This is needed to position the icon inside */
+}
+
+.input-group input {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: var(--secondary-color);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Make room for the icon inside the password input */
+.input-group input[name="password"] {
+  padding-right: 45px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: var(--white-color);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+.ustp-btn-login {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--primary-color); /* Dark Blue */
+  color: var(--white-color);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  margin-top: 0.5rem;
+}
+
+.ustp-btn-login:hover {
+  background: #002244; /* Even darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+}
+
+.ustp-btn-login:active {
+  transform: translateY(0);
+}
+
+.ustp-btn-back {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.ustp-btn-back:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ustp-login-left {
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,628 @@
+/* ===== GLOBAL STYLES & VARIABLES ===== */
+:root {
+  --primary-color: #003366; /* Dark Blue */
+  --accent-color: #0052a3; /* Lighter Blue */
+  --bg-color: #f4f7fc;
+  --sidebar-bg: #ffffff;
+  --navbar-bg: #ffffff;
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sidebar-width: 260px;
+  --sidebar-width-closed: 80px;
+  --navbar-height: 65px;
+  --border-radius: 12px;
+}
+
+.faculty-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  height: var(--navbar-height);
+  padding: 0 24px;
+  background-color: var(--navbar-bg); /* White Header */
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left {
+  flex: 1;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-center {
+  flex: 2;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.navbar-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background-color: #f3f4f6;
+}
+
+.ustp-logo {
+  height: 40px;
+}
+
+.brand-text h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* ===== PROFILE SECTION ===== */
+.profile-section {
+  position: relative;
+}
+
+.header-profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  border-radius: 50%;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  width: 150px;
+  z-index: 1001;
+  border: 1px solid var(--border-color);
+}
+
+.profile-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.profile-dropdown button:hover {
+  background-color: var(--bg-color);
+}
+
+/* ===== DASHBOARD LAYOUT ===== */
+.dashboard-layout {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background-color: var(--sidebar-bg); /* White Sidebar */
+  padding: 20px 12px;
+  transition: width 0.3s ease;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar.closed {
+  width: var(--sidebar-width-closed);
+  padding: 20px 12px;
+}
+
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.sidebar-btn svg {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  width: 24px; /* Consistent icon width */
+}
+
+.sidebar-btn:hover {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.sidebar-btn.active {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.closed .sidebar-btn {
+  justify-content: center;
+  padding: 12px;
+}
+
+.sidebar.closed .sidebar-btn span {
+  display: none;
+}
+
+.sidebar.closed .sidebar-logo {
+  display: none;
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: auto;
+}
+
+/* ===== MAIN CONTENT ===== */
+.faculty-dashboard .dashboard-content {
+  flex-grow: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.faculty-dashboard section {
+  background-color: white;
+  padding: 32px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.faculty-dashboard section h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+}
+
+/* ===== SECTIONS / SUBJECTS LISTS ===== */
+.subjects,
+.evaluation-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.subject-card,
+.evaluation-card {
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.subject-card:hover,
+.evaluation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.evaluation-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.evaluation-card p {
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.evaluation-card strong {
+  color: var(--accent-color);
+}
+
+/* ===== OVERVIEW SECTION ===== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.stat-card-faculty {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #f9fafb;
+  padding: 24px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.stat-card-faculty:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+.stat-card-faculty-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  background-color: #e0e8f9;
+  padding: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card-faculty-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.stat-card-faculty-info p {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Styles for Incident Report Section */
+.incident-section {
+  /* You can reuse styles from StudentDashboard.css if they are in a shared file */
+}
+
+.incident-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.incident-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.incident-form input,
+.incident-form textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.incident-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-incident-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+.incident-history .incident-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 15px;
+  position: relative;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.incident-item-status-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 10px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.incident-item-status-label.status-pending {
+  background-color: #d97706; /* Amber 600 */
+}
+
+.incident-item-status-label.status-under-investigation {
+  background-color: #2563eb; /* Blue 600 */
+}
+
+.incident-item-status-label.status-resolved {
+  background-color: #059669; /* Green 600 */
+}
+
+/* ===== ACTIVITY LOG SECTION ===== */
+.activity-log-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.activity-icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-details {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.activity-type {
+  font-weight: 600;
+}
+
+.activity-time {
+  color: var(--text-light);
+}
+
+/* ===== PROFILE PAGE ===== */
+.profile-section-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.profile-greeting {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.profile-card-new {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.profile-icon-new svg {
+  color: var(--primary-color);
+}
+
+.profile-info-new p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.profile-info-new p strong {
+  color: var(--text-color);
+}
+
+/* Add these styles for the profile picture and its container */
+.profile-icon-new {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* This is crucial for the upload button positioning */
+}
+
+.profile-picture-new {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+/* Add this for the upload button */
+.upload-btn-new {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.upload-btn-new:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: var(--navbar-height);
+    height: calc(100vh - var(--navbar-height));
+    z-index: 999;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .navbar .brand-text h1 {
+    font-size: 1rem;
+  }
+
+  .subjects,
+  .evaluation-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== New Styles for Detailed Evaluation Results ===== */
+
+.detailed-results-section h4 {
+  margin-top: 20px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.category-group {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #fdfdff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.category-group h5 {
+  color: #1b1464; /* USTP Blue */
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.question-list {
+  list-style: none;
+  padding: 0;
+}
+
+.question-item-new {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f2f5;
+  gap: 16px;
+}
+
+.question-item-new:last-child {
+  border-bottom: none;
+}
+
+.question-text-new {
+  flex: 1;
+  color: #495057;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.rating-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  min-width: 60px;
+  text-align: center;
+}
+
+.rating-badge.progress-bar-high {
+  background-color: #28a745; /* Green for high scores */
+}
+
+.rating-badge.progress-bar-medium {
+  background-color: #fd7e14; /* Orange for medium scores */
+}
+
+.rating-badge.progress-bar-low {
+  background-color: #dc3545; /* Red for low scores */
+}

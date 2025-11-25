@@ -1,0 +1,207 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.evaluation-modal h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.evaluation-modal p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+.evaluation-modal hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 0 0 20px 0;
+}
+
+.questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category-section {
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.category-title {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin: 0 0 20px 0;
+}
+
+.question-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.question-item:last-child {
+  border-bottom: none;
+}
+
+.question-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+/* --- New Rating Scale Styles --- */
+.rating-scale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.rating-label-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.rating-inputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rating-button {
+  position: relative;
+}
+
+.rating-button input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.rating-button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.rating-button input[type="radio"]:checked + span {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.rating-button:hover span {
+  background-color: var(--background-light);
+  border-color: var(--accent-color);
+}
+
+.feedback-section {
+  margin-top: 30px;
+}
+
+.feedback-section label {
+  font-weight: 600;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-section textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.modal-buttons button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+.submit-btn:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-color);
+}
+
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+}
+
+.cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.error-message {
+  color: var(--danger-color);
+  background-color: var(--danger-background);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
