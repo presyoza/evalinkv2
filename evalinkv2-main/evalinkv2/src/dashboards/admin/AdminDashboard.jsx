@@ -635,8 +635,8 @@ export default function AdminDashboard({ setUserRole }) {
             }`}
             onClick={() => setActiveSection("overview")}
           >
-            <FaChartBar />
-            <span>Analytics</span>
+            <FaTachometerAlt />
+            <span>Overview</span>
           </button>
 
           <button

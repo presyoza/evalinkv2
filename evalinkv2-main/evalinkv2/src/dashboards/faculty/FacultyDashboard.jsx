@@ -179,7 +179,7 @@ export default function FacultyDashboard({ setUserRole }) {
 
         <div className="navbar-center">
           <div className="brand-text">
-            <h1>Faculty Evaluation System</h1>
+            <h1>Faculty Evaluation Portal</h1>
           </div>
         </div>
 
